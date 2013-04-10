@@ -1,0 +1,80 @@
+<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Website._Default" %>
+
+<asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
+    <br />
+    </asp:Content>
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="idLoai" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:CommandField ShowEditButton="True" />
+            <asp:CommandField ShowDeleteButton="True" />
+            <asp:BoundField DataField="idLoai" HeaderText="id Loại" ReadOnly="True" SortExpression="idLoai" />
+            <asp:BoundField DataField="TenLoai" HeaderText="Tên Loại" SortExpression="TenLoai" />
+            <asp:BoundField DataField="ThuTu" HeaderText="Thứ Tự" SortExpression="ThuTu" />
+        </Columns>
+        <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+        <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+        <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+        <RowStyle BackColor="White" ForeColor="#003399" />
+        <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+        <SortedAscendingCellStyle BackColor="#EDF6F6" />
+        <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+        <SortedDescendingCellStyle BackColor="#D6DFDF" />
+        <SortedDescendingHeaderStyle BackColor="#002876" />
+    </asp:GridView>
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="idLoai" DataSourceID="SqlDataSource1">
+        <EditItemTemplate>
+            idLoai:
+            <asp:Label ID="idLoaiLabel1" runat="server" Text='<%# Eval("idLoai") %>' />
+            <br />
+            TenLoai:
+            <asp:TextBox ID="TenLoaiTextBox" runat="server" Text='<%# Bind("TenLoai") %>' />
+            <br />
+            ThuTu:
+            <asp:TextBox ID="ThuTuTextBox" runat="server" Text='<%# Bind("ThuTu") %>' />
+            <br />
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+        </EditItemTemplate>
+        <InsertItemTemplate>
+            <br />
+            TenLoai:
+            <asp:TextBox ID="TenLoaiTextBox" runat="server" Text='<%# Bind("TenLoai") %>' />
+            <br />
+            ThuTu:
+            <asp:TextBox ID="ThuTuTextBox" runat="server" Text='<%# Bind("ThuTu") %>' />
+            <br />
+            <asp:LinkButton ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+        </InsertItemTemplate>
+        <ItemTemplate>
+            idLoai:
+            <asp:Label ID="idLoaiLabel" runat="server" Text='<%# Eval("idLoai") %>' />
+            <br />
+            TenLoai:
+            <asp:Label ID="TenLoaiLabel" runat="server" Text='<%# Bind("TenLoai") %>' />
+            <br />
+            ThuTu:
+            <asp:Label ID="ThuTuLabel" runat="server" Text='<%# Bind("ThuTu") %>' />
+            <br />
+            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+            &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+        </ItemTemplate>
+    </asp:FormView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:websiteConnectionString %>" DeleteCommand="DELETE FROM [LoaiSanPham] WHERE [idLoai] = @idLoai" InsertCommand="INSERT INTO LoaiSanPham(TenLoai, ThuTu, idLoai) VALUES (@TenLoai, @ThuTu, @idLoai)" SelectCommand="SELECT * FROM [LoaiSanPham]" UpdateCommand="UPDATE [LoaiSanPham] SET [TenLoai] = @TenLoai, [ThuTu] = @ThuTu WHERE [idLoai] = @idLoai">
+        <DeleteParameters>
+            <asp:Parameter Name="idLoai" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="TenLoai" Type="String" />
+            <asp:Parameter Name="ThuTu" Type="Int32" />
+            <asp:RouteParameter Name="idLoai" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="TenLoai" Type="String" />
+            <asp:Parameter Name="ThuTu" Type="Int32" />
+            <asp:Parameter Name="idLoai" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+</asp:Content>
