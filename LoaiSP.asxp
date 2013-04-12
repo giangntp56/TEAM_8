@@ -1,0 +1,61 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="loaiSP.aspx.cs" Inherits="SALES.loaiSP" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idLoai" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:BoundField DataField="idLoai" HeaderText="idLoai" InsertVisible="False" ReadOnly="True" SortExpression="idLoai" />
+            <asp:BoundField DataField="TenLoai" HeaderText="TenLoai" SortExpression="TenLoai" />
+            <asp:BoundField DataField="ThuTu" HeaderText="ThuTu" SortExpression="ThuTu" />
+        </Columns>
+    </asp:GridView>
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="idLoai" DataSourceID="SqlDataSource1">
+        <EditItemTemplate>
+            idLoai:
+            <asp:Label ID="idLoaiLabel1" runat="server" Text='<%# Eval("idLoai") %>' />
+            <br />
+            TenLoai:
+            <asp:TextBox ID="TenLoaiTextBox" runat="server" Text='<%# Bind("TenLoai") %>' />
+            <br />
+            ThuTu:
+            <asp:TextBox ID="ThuTuTextBox" runat="server" Text='<%# Bind("ThuTu") %>' />
+            <br />
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+        </EditItemTemplate>
+        <InsertItemTemplate>
+            TenLoai:
+            <asp:TextBox ID="TenLoaiTextBox" runat="server" Text='<%# Bind("TenLoai") %>' />
+            <br />
+            ThuTu:
+            <asp:TextBox ID="ThuTuTextBox" runat="server" Text='<%# Bind("ThuTu") %>' />
+            <br />
+            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+        </InsertItemTemplate>
+        <ItemTemplate>
+            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+        </ItemTemplate>
+    </asp:FormView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:websiteConnectionString %>" DeleteCommand="DELETE FROM [LoaiSanPham] WHERE [idLoai] = @original_idLoai AND (([TenLoai] = @original_TenLoai) OR ([TenLoai] IS NULL AND @original_TenLoai IS NULL)) AND (([ThuTu] = @original_ThuTu) OR ([ThuTu] IS NULL AND @original_ThuTu IS NULL))" InsertCommand="INSERT INTO [LoaiSanPham] ([TenLoai], [ThuTu]) VALUES (@TenLoai, @ThuTu)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [LoaiSanPham]" UpdateCommand="UPDATE [LoaiSanPham] SET [TenLoai] = @TenLoai, [ThuTu] = @ThuTu WHERE [idLoai] = @original_idLoai AND (([TenLoai] = @original_TenLoai) OR ([TenLoai] IS NULL AND @original_TenLoai IS NULL)) AND (([ThuTu] = @original_ThuTu) OR ([ThuTu] IS NULL AND @original_ThuTu IS NULL))">
+        <DeleteParameters>
+            <asp:Parameter Name="original_idLoai" Type="Int32" />
+            <asp:Parameter Name="original_TenLoai" Type="String" />
+            <asp:Parameter Name="original_ThuTu" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="TenLoai" Type="String" />
+            <asp:Parameter Name="ThuTu" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="TenLoai" Type="String" />
+            <asp:Parameter Name="ThuTu" Type="Int32" />
+            <asp:Parameter Name="original_idLoai" Type="Int32" />
+            <asp:Parameter Name="original_TenLoai" Type="String" />
+            <asp:Parameter Name="original_ThuTu" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+</asp:Content>
