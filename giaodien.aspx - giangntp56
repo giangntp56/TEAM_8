@@ -1,0 +1,171 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="giaodien.aspx.cs" Inherits="SALES.giaodien.giaodien" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .head-style {
+            background-image:url(image/background_full-head.PNG);
+            height:130px;
+            text-align:center;
+        }
+        .left-right {
+            background-image: url(image/background_leftright_menu.PNG);
+            width: 180px;
+        }
+        .font_menu {
+            font-family:Calibri;
+            color:white;
+            font-size:large;
+        }
+        .font_of_image {
+            font-family:Calibri;
+            color:#1241AA;
+            font-size:xx-large;
+            width: 295px;
+            height: 54px
+        }
+        .shadow-style {
+            box-shadow:0px 0px 12px #023261;
+            -moz-box-shadow:0px 0px 12px #023261;
+            -webkit-box-shadow: 0px 0px 12px #023261;
+        }
+        .font_last {
+            font-family:Calibri;
+            font-size:medium;
+            color: black;
+            text-align:right;
+        }
+        .overimage_style {
+            position:absolute;
+            z-index:inherit;
+        }
+        .auto-style1 {
+            font-family: Calibri;
+            color: #1241AA;
+            font-size: xx-large;
+            width: 281px;
+            height: 54px;
+        }
+        .auto-style2 {
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+   
+        <table cellpadding="0" cellspacing="0" width="100%">
+
+            <!-- lam cho thanh head bao gom ten website-->
+            <tr  class="head-style" >
+                <td></td>
+                <td colspan="5" align="center">
+                    &nbsp;<b style="font-family:'Times New Roman';color:white;font-size:xx-large">DIDONG.COM</b></td>
+                <td></td>
+            </tr>
+            
+            <!-- lam cho thanh menu -->
+            <tr style="height:35px; background-color:#023261">
+                <td class="left-right"></td>
+                <td style="width:50px;background-image:url(background_menu.PNG);border-top-left-radius:10px" align="center">
+                    <img src="image/home_icon.png" alt="image_home" runat="server" />
+                </td>
+                <td style="width:200px;background-image:url(background_menu.PNG)" align="center">
+                    <tt class="font_menu">Thương hiệu</tt>
+                </td>
+                <td style="width:300px;background-image:url(background_menu.PNG)" align="center">
+                    <tt class="font_menu">Đăng nhập</tt>
+                </td>
+                <td colspan="2" style="background-image:url(background_menu.PNG);border-top-right-radius:10px" align="center">
+                    
+                </td>
+                <td class="left-right"></td>
+            </tr>
+
+            <!-- tao mot duong vien ke trang duoi thanh menu -->
+            <tr style="height:1px">
+                <td class="left-right"></td>
+                <td colspan="5" style="background-color:white"></td>
+                <td class="left-right"></td>
+            </tr>
+
+            <!-- phan body cua web gom slogan va hinh anh mo ta chinh cua web-->
+            <tr style="height:400px">
+                <!--- nen hinh anh -->
+                <td style="background-image:url(image/background.PNG)"></td>
+                <td colspan="5"align="right" style="background-image:url(image/background_main.PNG)" >
+                <!-- slogan cua cong ty -->
+                    <div class="overimage_style" style="top: 339px; left: 236px; width: 369px; height: 110px">
+                        <tt style="font-family:Times New Roman;color:white;font-size:45px">DIDONG.COM</tt>
+                        <br /><tt style="font-family:Arial;color:white;font:15">Nơi thể hiện đẳng cấp của bạn</tt>
+                    </div>
+                   
+                <img align="middle" src="image/Lumia-520-and-720-png.png" alt="homepage" style="margin-top: 0px"/>
+                </td>
+                 <td style="background-image:url(image/background.PNG)"></td>
+            </tr>
+
+            <!-- mot doan chen giua  homepage va nokia
+            <tr style="height:30px">
+                <td style="background-color:#266495"></td>
+                <td colspan="5" style="background-color:#549ACB" ></td>
+                <td style="background-color:#266495"></td>
+            </tr>-->
+             <!-- 3 hình anh mo ta ve cua hang dien thoai --->
+            <tr style="height:320px" align="center">
+                <td style="background-color:#266495"></td>
+                     <td style="background-color:#549ACB" colspan="5">
+                         <!-- hinh anh thu nhat kem theo slogan cua hinh -->
+                         <img class="shadow-style" src="image/Nokia-206.jpg" alt="nokia206" style="border-bottom-left-radius:10px;border-top-left-radius:10px"/>
+                         <div class="overimage_style" style="top: 590px; left: 220px">
+                         <tt class="auto-style1">Nokia 206 Hai Sim               <br class="auto-style2" /><tt style="font-family:Calibri;color:#1241AA;font-size:large">Nhìn đã mắt, chơi đã tay</tt>
+                         </div>
+
+                         <!-- hinh anh thu 2 kem theo slogan cua hinh-->
+                         <img class="shadow-style" src="image/Lumia-520.jpg" alt="lumina-520"/>
+                         <div class="overimage_style" style="top: 590px; left: 550px">
+                         <tt class="auto-style1">Nokia Lumina 520</tt>
+                         <br /><tt style="font-family:Calibri;color:#1241AA;font-size:large">Tự do chia sẻ, tung hoành khám
+                             <br />phá.
+                               </tt>
+                         </div>
+
+                         <!-- hinh anh thu 3 kem theo slogan cua hinh-->
+                         <img class="shadow-style" src="image/Lumia-720.jpg" alt="lumina-720" style=" border-bottom-right-radius:10px;border-top-right-radius:10px"/>
+                         <div class="overimage_style" style="top: 590px; left: 860px">
+                         <tt class="auto-style1">Nokia Lumina 720</tt>
+                         <br /><tt style="font-family:Calibri;color:#1241AA;font-size:large">Duyên dáng mảnh mai, hội tụ đủ sắc
+                             <br />tài.
+                               </tt>
+                         </div>
+                     </td>
+                <td style="background-color:#266495"></td>
+            </tr>
+            <!-- mot khonag trong giua mo ta dien thoai va thong tin cong ty--> 
+            <tr style="height:50px">
+                <td style="background-color:#266495"></td>
+                <td colspan="5" style="background-image:url(image/background_after-last.PNG)"></td>
+                <td style="background-color:#266495"></td>
+            </tr>
+           <!--thong tin lien lac voi cong ty --> 
+            <tr style="height:150px; background-color:#EFEFEF">
+                <td></td>
+                <td colspan="5">
+                    <b style="font-size:25px; color:#124191">DIDONG.COM</b>
+                    <br /><br />
+                    <tt class="font_last">
+                       Địa chỉ của hàng: ĐH Công nghệ - ĐHQGHN
+                    </tt>
+                </td>
+                <td></td>
+            </tr>
+
+           
+        </table>
+   
+    </form>
+</body>
+</html>
