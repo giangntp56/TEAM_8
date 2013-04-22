@@ -4,7 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Trang sản phẩm</title>
+
+    <!-- cac font duoc su dung trong website-->
     <style type="text/css">
         .head-style {
             background-image:url(image/background_full-head.PNG);
@@ -20,12 +22,12 @@
             color:white;
             font-size:large;
         }
-        .font_of_image {
-            font-family:Calibri;
-            color:#1241AA;
-            font-size:xx-large;
-            width: 295px;
-            height: 54px
+        .image-style {
+            font-family: Calibri;
+            color: #1241AA;
+            font-size: xx-large;
+            width: 281px;
+            height: 54px;
         }
         .shadow-style {
             box-shadow:0px 0px 12px #023261;
@@ -42,56 +44,141 @@
             position:absolute;
             z-index:inherit;
         }
-        .auto-style1 {
-            font-family: Calibri;
-            color: #1241AA;
-            font-size: xx-large;
-            width: 281px;
-            height: 54px;
-        }
-        .auto-style2 {
-            font-size: xx-large;
-        }
     </style>
+ 
 </head>
 <body>
+    
     <form id="form1" runat="server">
    
         <table cellpadding="0" cellspacing="0" width="100%">
 
-            <!-- lam cho thanh head bao gom ten website-->
+            <!-- thanh head bao gom ten website-->
             <tr  class="head-style" >
                 <td></td>
                 <td colspan="5" align="center">
-                    &nbsp;<b style="font-family:'Times New Roman';color:white;font-size:xx-large">DIDONG.COM</b></td>
+                    &nbsp;<b style="font-family:'Times New Roman';color:white;font-size:xx-large">DIDONG.COM</b>
+                </td>
                 <td></td>
             </tr>
-            
-            <!-- lam cho thanh menu -->
-            <tr style="height:35px; background-color:#023261">
-                <td class="left-right"></td>
-                <td style="width:50px;background-image:url(background_menu.PNG);border-top-left-radius:10px" align="center">
-                    <img src="image/home_icon.png" alt="image_home" runat="server" />
-                </td>
-                <td style="width:200px;background-image:url(background_menu.PNG)" align="center">
-                    <tt class="font_menu">Thương hiệu</tt>
-                </td>
-                <td style="width:300px;background-image:url(background_menu.PNG)" align="center">
-                    <tt class="font_menu">Đăng nhập</tt>
-                </td>
-                <td colspan="2" style="background-image:url(background_menu.PNG);border-top-right-radius:10px" align="center">
-                    
-                </td>
-                <td class="left-right"></td>
-            </tr>
 
-            <!-- tao mot duong vien ke trang duoi thanh menu -->
+            <!-- phan thanh menu, su dung jquery, javascrip, che do lam menu-->
+            
+            <tr style="background-color:#033262">
+                <td class="left-right"></td>
+                
+                <td align="center" colspan="5" style="height:35px;background-image:url(background_menu.PNG);border-top-left-radius:10px;border-top-right-radius:10px">
+                    <div class="overimage_style" style="top: 140px; left: 341px; width: 611px; height: 30px">
+                <style type="text/css">
+            /* menu styles */
+            #jsddm
+            {   margin: 0;
+                padding: 0}
+            #jsddm li
+            {   float: left;
+                list-style: none;
+                font: large Tahoma, Arial;
+                        height: 31px;
+                    }
+
+            #jsddm li a
+            {   display: block;
+                background: none;
+                padding: 5px 20px;
+                text-decoration: none;
+                /*border-right: 1px solid white;*/
+                width: 138px;
+                color:white;
+                white-space: nowrap;
+                        height: 22px;
+                        margin-left: 0px;
+                    }
+
+            #jsddm li a:hover
+            {background: #1A4C89}
+
+            #jsddm li ul
+            {   margin: 0;
+                padding: 0;
+                position: absolute;
+                visibility: hidden;
+                border-top: 1px solid white}
+
+            #jsddm li ul li
+            {   float: none;
+                display: inline}
+            
+            #jsddm li ul li a
+            {   width: auto;
+                background-color: #5298C3;
+                background:-moz-linear-gradient(left,#5298C3,white);
+                color: #023261}
+
+            #jsddm li ul li a:hover
+            {   background-color: #D0D0D0;
+                background:-moz-linear-gradient(top, #D0D0D0,white)
+             
+            }
+    </style>
+                            
+        <script src="jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var timeout = 500;
+            var closetimer = 0;
+            var ddmenuitem = 0;
+
+            function jsddm_open() {
+                jsddm_canceltimer();
+                jsddm_close();
+                ddmenuitem = $(this).find('ul').eq(0).css('visibility', 'visible');
+            }
+
+            function jsddm_close()
+            { if (ddmenuitem) ddmenuitem.css('visibility', 'hidden'); }
+
+            function jsddm_timer()
+            { closetimer = window.setTimeout(jsddm_close, timeout); }
+
+            function jsddm_canceltimer() {
+                if (closetimer) {
+                    window.clearTimeout(closetimer);
+                    closetimer = null;
+                }
+            }
+
+            $(document).ready(function () {
+                $('#jsddm > li').bind('mouseover', jsddm_open);
+                $('#jsddm > li').bind('mouseout', jsddm_timer);
+            });
+
+            document.onclick = jsddm_close;
+            </script>
+            <ul id="jsddm">
+                <li><a href="#"><img src="image/home_icon.png" alt="home-icon"/></a></li>
+                <li><a href="#" class="font_menu">Thương hiệu</a>
+                    <ul>
+                        <li class="font_menu"><a href="#">HTC</a></li>
+                        <li class="font_menu"><a href="#">Nokia</a></li>
+                        <li class="font_menu"><a href="#">Samsung</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="font_menu">Đăng nhập</a></li>
+            </ul>
+            </div>
+            </td>
+            
+            <td class="left-right"></td> 
+        </tr>
+            
+
+            <!-- tao mot duong vien ke trang duoi thanh menu-->
             <tr style="height:1px">
                 <td class="left-right"></td>
                 <td colspan="5" style="background-color:white"></td>
                 <td class="left-right"></td>
             </tr>
 
+            
             <!-- phan body cua web gom slogan va hinh anh mo ta chinh cua web-->
             <tr style="height:400px">
                 <!--- nen hinh anh -->
@@ -108,12 +195,7 @@
                  <td style="background-image:url(image/background.PNG)"></td>
             </tr>
 
-            <!-- mot doan chen giua  homepage va nokia
-            <tr style="height:30px">
-                <td style="background-color:#266495"></td>
-                <td colspan="5" style="background-color:#549ACB" ></td>
-                <td style="background-color:#266495"></td>
-            </tr>-->
+
              <!-- 3 hình anh mo ta ve cua hang dien thoai --->
             <tr style="height:320px" align="center">
                 <td style="background-color:#266495"></td>
@@ -121,13 +203,14 @@
                          <!-- hinh anh thu nhat kem theo slogan cua hinh -->
                          <img class="shadow-style" src="image/Nokia-206.jpg" alt="nokia206" style="border-bottom-left-radius:10px;border-top-left-radius:10px"/>
                          <div class="overimage_style" style="top: 590px; left: 220px">
-                         <tt class="auto-style1">Nokia 206 Hai Sim               <br class="auto-style2" /><tt style="font-family:Calibri;color:#1241AA;font-size:large">Nhìn đã mắt, chơi đã tay</tt>
+                         <tt class="image-style">Nokia 206 Hai Sim</tt>
+                             <br/><tt style="font-family:Calibri;color:#1241AA;font-size:large">Nhìn đã mắt, chơi đã tay</tt>
                          </div>
 
                          <!-- hinh anh thu 2 kem theo slogan cua hinh-->
                          <img class="shadow-style" src="image/Lumia-520.jpg" alt="lumina-520"/>
                          <div class="overimage_style" style="top: 590px; left: 550px">
-                         <tt class="auto-style1">Nokia Lumina 520</tt>
+                         <tt class="image-style">Nokia Lumina 520</tt>
                          <br /><tt style="font-family:Calibri;color:#1241AA;font-size:large">Tự do chia sẻ, tung hoành khám
                              <br />phá.
                                </tt>
@@ -136,7 +219,7 @@
                          <!-- hinh anh thu 3 kem theo slogan cua hinh-->
                          <img class="shadow-style" src="image/Lumia-720.jpg" alt="lumina-720" style=" border-bottom-right-radius:10px;border-top-right-radius:10px"/>
                          <div class="overimage_style" style="top: 590px; left: 860px">
-                         <tt class="auto-style1">Nokia Lumina 720</tt>
+                         <tt class="image-style">Nokia Lumina 720</tt>
                          <br /><tt style="font-family:Calibri;color:#1241AA;font-size:large">Duyên dáng mảnh mai, hội tụ đủ sắc
                              <br />tài.
                                </tt>
@@ -160,12 +243,12 @@
                        Địa chỉ của hàng: ĐH Công nghệ - ĐHQGHN
                     </tt>
                 </td>
-                <td></td>
+                <td>
+                    <b></b>
+                </td>
             </tr>
 
-           
         </table>
-   
     </form>
 </body>
 </html>
