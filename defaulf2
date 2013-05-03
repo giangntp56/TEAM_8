@@ -1,0 +1,85 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="dangnhap2.aspx.cs" Inherits="web1.Account.dangnhap2" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            width: 516px;
+            table-layout: auto;
+            height: 366px;
+            margin-left: 350px;
+            margin-bottom: 2px;
+            background-color: #2A2A2A;
+        }
+        .auto-style3 {
+            font-size: x-large;
+            color: #FFFFFF;
+        }
+        .auto-style8 {
+            margin-left: 58px;
+        }
+        .auto-style9 {
+            margin-left: 58px;
+        }
+        .auto-style10 {
+            text-align: center;
+        }
+        .auto-style11 {
+            width: 153px;
+            height: 79px;
+        }
+        .auto-style12 {
+            text-align: center;
+            height: 79px;
+        }
+        .auto-style13 {
+            text-align: left;
+        }
+        .auto-style14 {
+            margin-bottom: 19px;
+        }
+        </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
+    <table aria-live="off" class="auto-style1" style="caption-side: bottom;" tabindex="20">
+        <tr>
+            <td class="auto-style10" colspan="2"><strong><span class="auto-style3">LOGIN</span></strong></td>
+        </tr>
+        <tr>
+            <td class="auto-style10" colspan="2"><strong><span class="auto-style3">
+                <asp:TextBox ID="Email" runat="server" Font-Italic="True" Font-Size="20pt" Height="30px">Email</asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Email" ErrorMessage="Input username, please!" Font-Size="Medium" ForeColor="Red">*</asp:RequiredFieldValidator>
+                </span></strong></td>
+        </tr>
+        <tr>
+            <td class="auto-style10" colspan="2">
+                <asp:TextBox ID="Password" runat="server" Font-Italic="True" Font-Size="20pt" Height="30px" TextMode="Password" Width="300px">Password</asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password" ErrorMessage="Input password!" Font-Size="Large" ForeColor="Red">*</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style11">
+                <asp:CheckBox ID="savepass" runat="server" CssClass="auto-style9" Font-Italic="True" Font-Size="Small" ForeColor="White" Height="60px" Text="Save password ?" Width="133px" />
+            </td>
+            <td class="auto-style12">
+                <asp:HyperLink ID="forgetpass" runat="server" Font-Italic="True" Font-Size="Medium" Font-Strikeout="False" Font-Underline="True" ForeColor="White">Forget password ?</asp:HyperLink>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style10" colspan="2">
+                <asp:Button ID="SignIn" runat="server" BackColor="#999999" CssClass="auto-style8" Font-Bold="True" Font-Italic="True" Font-Size="XX-Large" ForeColor="White" Height="60px" Text="Sign In" Width="300px" OnClick="SignIn_Click" CausesValidation="False" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style13" colspan="2">
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" CssClass="auto-style14" />
+                <div class="auto-style13">
+                    <asp:Label ID="ErrMsg" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
+                    <br />
+                </div>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <h2></h2>
+</asp:Content>
